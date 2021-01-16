@@ -1,0 +1,21 @@
+{
+  "name": "addentry",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start:dev": "ts-node ./src/app.ts"
+  },
+  "author": "Luis Chicas",
+  "license": "ISC",
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.70",
+    "@types/mysql": "^2.15.17",
+    "@types/node": "^14.14.21",
+    "aws-sdk": "^2.827.0",
+    "dotenv": "^8.2.0",
+    "mysql": "^2.18.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  }
+}
