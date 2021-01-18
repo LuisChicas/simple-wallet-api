@@ -6,7 +6,7 @@
         "preserveConstEnums": true,
         "outDir": "./dist",
         "baseUrl": "./src",
-        "sourceMap": true,
+        "sourceMap": false,
         "resolveJsonModule": true,
         "esModuleInterop": true 
     },

@@ -1,37 +1,28 @@
 interface EntryMapperResult {
-    isValid : boolean,
-    errorMessage? : String,
-    keyword? : String,
+    error? : string,
+    keyword? : string,
     amount? : number
 }
 
-export default (entry:String): EntryMapperResult => {
+export default (entry: string): EntryMapperResult => {
     const provideCategoryAmountMessage = "Please provide a Category and an amount.";
+    const provideValidAmountMessage = "Please provide a valid amount.";
 
     if (!entry) {
-        return {
-            isValid: false,
-            errorMessage: provideCategoryAmountMessage
-        };
+        return { error: provideCategoryAmountMessage };
     }
-
+    
     const entryParts = entry.split(" ");
 
     if (entryParts.length < 2) {
-        return {
-            isValid: false,
-            errorMessage: provideCategoryAmountMessage
-        };
+        return { error: provideCategoryAmountMessage };
     }
 
-    const amountText = entryParts.pop().replace("$", '');
+    const amountText = entryParts.pop().replace('$', '');
     let amount = Number(amountText);
 
     if (isNaN(amount)) {
-        return {
-            isValid: false,
-            errorMessage: "Please provide a valid amount."
-        };
+        return { error: provideValidAmountMessage };
     }
 
     amount = Math.abs(amount);
@@ -39,9 +30,5 @@ export default (entry:String): EntryMapperResult => {
 
     const keyword = entryParts.join(" ");
 
-    return {
-        isValid: true,
-        keyword,
-        amount
-    };
+    return { keyword, amount };
 };
