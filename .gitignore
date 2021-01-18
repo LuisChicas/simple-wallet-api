@@ -1,6 +1,6 @@
 # Logs
-*.log
-npm-debug.log*
+**/*.log
+**/npm-debug.log*
 
 # Dependency directories
 **/node_modules
@@ -12,10 +12,13 @@ npm-debug.log*
 **/.npm
 
 # Optional eslint cache
-.eslintcache
+**/.eslintcache
 
 # dotenv environment variables file
 **/.env
 
 # Directory for compiled files
 **/dist
+
+# Local test files
+**/test

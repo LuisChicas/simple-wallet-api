@@ -23,8 +23,6 @@ exports.handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyRe
 
     try {
         const user = await getUser(dbPool, requestBody.guid);
-        console.log(requestBody.guid);
-        console.log(user);
         userId = user.Id;
     } catch (error) {
         console.error(error);
@@ -104,27 +102,4 @@ exports.handler(require("../test/eventAPI.json"))
 .then((data: any) => console.log(data))
 .catch((data: any) => console.error(data))
 .finally(() => process.exit());
-
-// APIGateway Handler
-
-export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-
-    const data = new Promise<APIGatewayProxyResult>((resolve, reject) => {
-        dbPool.query("select Name from Users where id=18", (err:MysqlError, results:any, fields:FieldInfo[]) => {
-            if (err) {
-                reject({
-                    statusCode: 500,
-                    body: err
-                });
-            } else {
-                resolve({
-                    statusCode: 200,
-                    body: results[0].Name
-                });
-            }
-        })
-    });
-
-    return data;
-};
 */
